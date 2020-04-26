@@ -11,15 +11,15 @@ kapt {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion BuildConfig.compileSdk
+    buildToolsVersion BuildConfig.buildTool
 
     defaultConfig {
         applicationId ApplicationId.id
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode Releases.versionCode
-        versionName Releases.versionName
+        minSdkVersion BuildConfig.minSdk
+        targetSdkVersion BuildConfig.targetSdk
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,13 +37,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding {
-        enabled = true
+
+    buildFeatures{
+        viewBinding = true
     }
 }
 
 dependencies {
 
+    implementation project(":base")
     implementation Libs.Kotlin.stdlib
     implementation Libs.AndroidX.coreKtx
     implementation Libs.AndroidX.appcompat

@@ -1,7 +1,7 @@
-package app.teevi.buildsrc
+package app.tv.buildsrc
 
 object ApplicationId {
-    val id = "com.aman.teevi"
+    val id = "com.aman.tv"
 }
 
 object Modules {

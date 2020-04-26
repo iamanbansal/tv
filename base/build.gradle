@@ -1,5 +1,5 @@
-import app.teevi.buildsrc.BuildPlugins
-import app.teevi.buildsrc.Libs
+import app.tv.buildsrc.BuildPlugins
+import app.tv.buildsrc.Libs
 
 apply plugin: BuildPlugins.kotlin
 apply plugin: BuildPlugins.kolinKapt

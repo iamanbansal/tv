@@ -1,4 +1,4 @@
-import app.teevi.buildsrc.*
+import app.tv.buildsrc.*
 
 apply plugin: BuildPlugins.androidApplication
 apply plugin: BuildPlugins.kotlinAndroid

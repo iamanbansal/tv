@@ -8,14 +8,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      uses: actions/checkout@v2
-      uses: actions/setup-java@v3
-      with:
-        java-version: 11
-
-      name: build
-      run: ./gradlew assembleDebug
-
-
+      - name: Checkout project
+        uses: actions/checkout@v2
+        
+      - name: Setup JAVA 11  
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+      
+      - name: Assemble Debug Build
+        run: ./gradlew assembleDebug
+      
+      
 

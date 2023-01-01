@@ -32,6 +32,6 @@ jobs:
           distribution: 'corretto'
           java-version: 11
       - name: Run Unit Test
-        run: ./graldew app:test
+        run: ./gradlew app:test
       
 

@@ -1,7 +1,7 @@
 package app.tv.buildsrc
 
 object ApplicationId {
-    val id = "com.aman.tv"
+    const val id = "com.aman.showtv"
 }
 
 object Modules {
@@ -11,12 +11,12 @@ object Modules {
 
 
 object BuildConfig {
-    val compileSdk = 29
-    val minSdk = 21
-    val targetSdk = 29
-    val versionCode = 1
-    val versionName = "0.1"
-    val buildTool= "29.0.3"
+  const val compileSdk = 29
+  const val minSdk = 21
+  const val targetSdk = 29
+  const val versionCode = 1
+  const val versionName = "0.1"
+  const val buildTool= "29.0.3"
 
 }
 
@@ -35,7 +35,7 @@ object BuildPlugins {
 }
 
 object Libs {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.0-alpha08"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:4.2.0"
     const val dexcountGradlePlugin = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:1.0.2"
     const val playPublisherPlugin = "com.github.triplet.gradle:play-publisher:2.7.3"
 
@@ -84,7 +84,7 @@ object Libs {
     }
 
     object Kotlin {
-        private const val version = "1.4.0"
+        private const val version = "1.6.0"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
         const val reflect = "org.jetbrains.kotlin:kotlin-reflect:$version"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"

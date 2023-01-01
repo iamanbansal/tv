@@ -23,6 +23,7 @@ jobs:
         run: ./gradlew assembleDebug
 
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +32,7 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: 11
+          
       - name: Run Unit Test
         run: ./gradlew app:test
       

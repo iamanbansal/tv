@@ -5,7 +5,7 @@ on:
   push:
     branches: master
     tags:
-     - v*
+     - v* #trigger on new tag
 
 jobs:
   release_build:
@@ -42,3 +42,11 @@ jobs:
          name: release-artifacts
          path: app/build/outputs/apk/release/
 
+     - name: Create Github Release
+       uses: softprops/action-gh-release@v1
+       if: startsWith(github.ref, 'refs/tags/')
+       with:
+         prerelease: true
+         files: |
+          app/build/outputs/apk/release/app-release.apk
+          app/build/outputs/apk/release/output-release.apk

@@ -9,7 +9,6 @@ on:
 
 jobs:
   release_build:
-   needs: build, test
    runs-on: ubuntu-latest
 
    steps:

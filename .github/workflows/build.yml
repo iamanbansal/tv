@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v2.6.0
+      - uses: actions/checkout@v2.6.0
 
       - uses: ./.github/actions/setup
 
@@ -27,18 +26,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2.6.0
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'corretto'
-          java-version: 11
 
-      - name: Cache Gradle and wrapper
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+      - uses: ./.github/actions/setup
 
       - name: Run Unit Test
         run: ./gradlew app:test
@@ -50,10 +39,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2.6.0
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'corretto'
-          java-version: 11
+
+      - uses: ./.github/actions/setup
 
       - name: Decode Keystore
         env:
@@ -63,14 +50,6 @@ jobs:
         run: |
           echo $ENCODED_STRING > keystore-b64.txt
           base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
-
-      - name: Cache Gradle and wrapper
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
 
       - name: Build Release apk
         env:

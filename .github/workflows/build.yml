@@ -9,12 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
+    uses: iamanbansal/tv/.github/workflows/build-setup-workflow.yml@master
+
     steps:
-      - name: Setup
-        uses: iamanbansal/tv/.github/workflows/build-setup-workflow.yml@master
-      
       - name: Assemble Debug Build
         run: ./gradlew assembleDebug
 

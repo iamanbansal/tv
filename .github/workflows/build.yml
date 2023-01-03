@@ -12,22 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v2.6.0
-        
-      - name: Setup JAVA 11  
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'corretto'
-          java-version: 11
-
-      - name: Cache Gradle and wrapper
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+      - name: Setup
+        uses: iamanbansal/tv/blob/master/.github/workflows/build-setup-workflow.yml@reuse_workflow
       
       - name: Assemble Debug Build
         run: ./gradlew assembleDebug

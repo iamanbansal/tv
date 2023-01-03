@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: Setup
-        uses: iamanbansal/tv/blob/master/.github/workflows/build-setup-workflow.yml@reuse_workflow
+        uses: iamanbansal/tv/blob/master/.github/workflows/build-setup-workflow.yml
       
       - name: Assemble Debug Build
         run: ./gradlew assembleDebug

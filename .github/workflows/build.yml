@@ -8,10 +8,11 @@ on:
   pull_request:
 
 jobs:
+  runs-on: ubuntu-latest
   build:
-    uses: iamanbansal/tv/.github/workflows/build-setup-workflow.yml@master
-
     steps:
+      - uses: ./.github/actions/setup
+
       - name: Assemble Debug Build
         run: ./gradlew assembleDebug
 

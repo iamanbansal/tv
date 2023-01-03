@@ -1,0 +1,22 @@
+name: project-setup
+description: This will setup project, jdk, gradle cache
+
+runs:
+  using: composite
+  steps:
+   - name: Checkout project
+     uses: actions/checkout@v2.6.0
+
+   - name: Setup JAVA 11
+     uses: actions/setup-java@v3
+     with:
+       distribution: 'corretto'
+       java-version: 11
+
+   - name: Cache Gradle and wrapper
+     uses: actions/cache@v2
+     with:
+       path: |
+         ~/.gradle/caches
+         ~/.gradle/wrapper
+       key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}

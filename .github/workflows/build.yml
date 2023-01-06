@@ -73,33 +73,3 @@ jobs:
           files: |
             app/build/outputs/apk/release/app-release.apk
             app/build/outputs/apk/release/output-release.apk
-   
-
-
-
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.6.0
-
-      - uses: ./.github/actions/setup
-
-      - name: Decode Keystore
-        env:
-          ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
-          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
-
-        run: |
-          echo $ENCODED_STRING > keystore-b64.txt
-          base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
-
-      - name: Build aab
-        env:
-          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
-          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-        run: ./gradlew bundleRelease
-
-  playstore:
-    uses: iamanbansal/tv/.github/workflows/publish.yml@publish

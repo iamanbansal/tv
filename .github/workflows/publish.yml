@@ -3,27 +3,27 @@ name: Publish build to play store
 on:
   workflow_dispatch:
     inputs:
-      inputs:
-        track:
-          description: Select track
-          required: true
-          default: 'production'
-          type: choice
-          options:
-            - production
-            - beta
-            - alpha
-            - internalsharing
-            - internal
+      track:
+        description: Select track
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - beta
+          - alpha
+          - internalsharing
+          - internal
 
-        userFraction:
-          description: Enter user fraction 0.0-1.0
-          required: true
-          type: string
+      userFraction:
+        description: Enter user fraction 0.0-1.0
+        required: true
+        type: string
 
-        whatsNew:
-          description: Enter What's New
-          type: string
+      whatsNew:
+        description: Enter What's New
+        type: string
+
 
 
 

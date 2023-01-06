@@ -99,15 +99,6 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-        run: ./gradlew assembleRelease
+        run: ./gradlew bundleRelease
 
-      - name: Publish on Play Store internal track
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-          packageName: com.aman.showtv
-          releaseFiles: app/build/outputs/bundle/release/app-release.aab
-          track: ${{inputs.track}}
-          userFraction: ${{inputs.userFraction}}
-          whatsNewDirectory: ${{inputs.whatsNew}}
-          mappingFile: app/build/outputs/mapping/release/mapping.txt
+

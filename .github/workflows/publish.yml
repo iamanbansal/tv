@@ -1,6 +1,7 @@
 name: Publish build to play store
 
 on:
+  pull_request:
   workflow_dispatch:
     inputs:
       inputs:

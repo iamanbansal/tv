@@ -101,4 +101,5 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         run: ./gradlew bundleRelease
 
-
+      - name: Publish on Play Store internal track
+        uses: iamanbansal/tv/.github/workflows/publish.yml@publish

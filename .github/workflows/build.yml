@@ -102,5 +102,5 @@ jobs:
         run: ./gradlew bundleRelease
 
   playstore:
-      - name: Publish on Play Store internal track
-        uses: iamanbansal/tv/.github/workflows/publish.yml@publish
+    - name: Publish on Play Store internal track
+      uses: iamanbansal/tv/.github/workflows/publish.yml@publish

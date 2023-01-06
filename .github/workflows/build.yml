@@ -99,7 +99,7 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGN ING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-        run: ./gradlew bundleRelease
+        run: ./gradlew assembleRelease
 
       - name: Publish on Play Store internal track
         uses: r0adkll/upload-google-play@v1

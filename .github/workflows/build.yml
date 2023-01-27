@@ -17,6 +17,9 @@ jobs:
 
       - uses: ./.github/actions/setup
 
+      - name: Run lint
+        run: ./gradlew lintDebug
+
       - name: Assemble Debug Build
         run: ./gradlew assembleDebug
 

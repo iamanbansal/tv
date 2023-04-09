@@ -11,9 +11,9 @@ object Modules {
 
 
 object BuildConfig {
-  const val compileSdk = 29
+  const val compileSdk = 33
   const val minSdk = 21
-  const val targetSdk = 29
+  const val targetSdk = 33
   const val versionCode = 1
   const val versionName = "0.1"
   const val buildTool= "29.0.3"
@@ -151,7 +151,7 @@ object Libs {
         }
 
         object Room {
-            private const val version = "2.2.5"
+            private const val version = "2.5.0"
             const val common = "androidx.room:room-common:$version"
             const val runtime = "androidx.room:room-runtime:$version"
             const val compiler = "androidx.room:room-compiler:$version"

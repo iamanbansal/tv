@@ -37,7 +37,6 @@ jobs:
 
   release_build:
     runs-on: ubuntu-latest
-    needs: [build, test]
     if: startsWith(github.ref, 'refs/tags/')
 
     steps:
@@ -62,11 +61,21 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         run: ./gradlew assembleRelease
 
+      - name: Build Release bundle
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        run: ./gradlew bundleRelease
+
       - name: Upload Release Build to Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: release-artifacts
-          path: app/build/outputs/apk/release/
+          paths: |
+            app/build/outputs/apk/release/
+            app/build/outputs/bundle/release/
 
       - name: Create Github Release
         uses: softprops/action-gh-release@v1
